@@ -1,1 +1,6 @@
-src/*.class
+target/
+.env
+*.class
+.idea/
+*.iml
+.vscode/
