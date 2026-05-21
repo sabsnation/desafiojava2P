@@ -5,6 +5,8 @@ import io.github.cdimascio.dotenv.Dotenv;
 public final class EnvConfig {
 
     private static final Dotenv DOTENV = Dotenv.configure()
+            .directory(System.getProperty("user.dir"))
+            .filename(".env")
             .ignoreIfMissing()
             .load();
 
