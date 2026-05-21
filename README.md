@@ -25,7 +25,7 @@ java Main
 - **Desconto:** R$ 15 se o primeiro nome começar com **A**
 - **Valor final:** subtotal + taxa − desconto
 
-## Entrega (dupla)
+## Entrega 
 
 1. Criar repositório **público** no GitHub
 2. Cada integrante deve ter pelo menos um commit relevante
