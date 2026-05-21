@@ -126,7 +126,13 @@ public class MenuPrincipal {
         System.out.print("CEP (será consultado na ViaCEP): ");
         String cep = scanner.nextLine();
 
-        ViaCepResponse endereco = buscarEnderecoApi(cep);
+        ViaCepResponse endereco;
+        try {
+            endereco = buscarEnderecoApi(cep);
+        } catch (IOException | InterruptedException e) {
+            System.out.println("Erro ao consultar ViaCEP: " + e.getMessage());
+            return;
+        }
 
         Cliente cliente = new Cliente(
                 nome,
@@ -194,7 +200,13 @@ public class MenuPrincipal {
         System.out.print("CEP [" + cliente.getCep() + "] (Enter para manter): ");
         String cep = scanner.nextLine();
         if (!cep.isBlank()) {
-            ViaCepResponse endereco = buscarEnderecoApi(cep);
+            ViaCepResponse endereco;
+            try {
+                endereco = buscarEnderecoApi(cep);
+            } catch (IOException | InterruptedException e) {
+                System.out.println("Erro ao consultar ViaCEP: " + e.getMessage());
+                return;
+            }
             cliente.setCep(Validador.normalizarCep(cep));
             cliente.setLogradouro(endereco.getLogradouro());
             cliente.setBairro(endereco.getBairro());
